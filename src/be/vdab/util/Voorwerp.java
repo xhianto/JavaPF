@@ -1,4 +1,4 @@
-package be.vdab.jpfhfdst11;
+package be.vdab.util;
 
 public interface Voorwerp {
     void gegevensTonen();

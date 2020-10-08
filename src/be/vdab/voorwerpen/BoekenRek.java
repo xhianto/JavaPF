@@ -1,6 +1,8 @@
-package be.vdab.jpfhfdst11;
+package be.vdab.voorwerpen;
 
-public class BoekenRek implements Voorwerp{
+import be.vdab.util.Voorwerp;
+
+public class BoekenRek implements Voorwerp {
     private final static String eigenaar = "VDAB";
     private int hoogte;
     private int breedte;

@@ -1,8 +1,14 @@
-package be.vdab.jpfhfdst8;
+package be.vdab;
+
+import be.vdab.util.Milieu;
+import be.vdab.util.Privaat;
+import be.vdab.util.Vervuiler;
+import be.vdab.verwarming.Stookketel;
+import be.vdab.voertuigen.*;
 
 public class TestProgramma {
     public static void main(String[] args) {
-        var opel1 = new Personenwagen();
+        var opel1 = new be.vdab.voertuigen.Personenwagen();
         opel1.toon();
         System.out.println(opel1);
         var opel2 = new Personenwagen("Jan Klaasen",
@@ -13,7 +19,7 @@ public class TestProgramma {
         opel2.setAantalDeuren(-7);
         opel2.setAantalPassagiers(0);
         System.out.println(opel2); //opel2 is niet gewijzigd
-        var volvo1 = new Vrachtwagen();
+        var volvo1 = new be.vdab.voertuigen.Vrachtwagen();
         volvo1.toon();
         System.out.println(volvo1);
         var volvo2 = new Vrachtwagen("Michel Dewolf",

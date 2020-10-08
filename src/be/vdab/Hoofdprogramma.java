@@ -1,14 +1,17 @@
-package be.vdab.jpfhfdst11;
+package be.vdab;
+
+import be.vdab.util.Voorwerp;
+import be.vdab.voorwerpen.*;
 
 public class Hoofdprogramma {
     public static void main(String[] args) {
         Voorwerp[] voorwerpen = {
-                new BoekenRek(),
+                new be.vdab.voorwerpen.BoekenRek(),
                 new BoekenRek(75, 90, 28.5F),
-                new LeesBoek(),
+                new be.vdab.voorwerpen.LeesBoek(),
                 new LeesBoek("Leesboek Java 7", "Oracle", 20.4F,
                         "genre Informatica", "onderw programmeren" ),
-                new WoordenBoek(),
+                new be.vdab.voorwerpen.WoordenBoek(),
                 new WoordenBoek("Woordenboek Engels", "Van Dale", 30.10F,
                         "genre vertaal woordenboek", "taal Engels-Nederlands")
         };

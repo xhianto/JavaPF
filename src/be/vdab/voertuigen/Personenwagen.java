@@ -1,6 +1,8 @@
-package be.vdab.jpfhfdst8;
+package be.vdab.voertuigen;
 
-public class Personenwagen extends Voertuig implements Vervuiler{
+import be.vdab.util.Vervuiler;
+
+public class Personenwagen extends Voertuig implements Vervuiler {
     public int aantalDeuren = 4;
     public int aantalPassagiers = 5;
 

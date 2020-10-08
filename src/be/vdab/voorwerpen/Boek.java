@@ -1,6 +1,8 @@
-package be.vdab.jpfhfdst11;
+package be.vdab.voorwerpen;
 
-public abstract class Boek implements Voorwerp{
+import be.vdab.util.Voorwerp;
+
+public abstract class Boek implements Voorwerp {
     private String titel;
     private String auteur;
     private final static String eigenaar = "VDAB";
