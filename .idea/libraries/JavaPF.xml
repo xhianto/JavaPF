@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="JavaPF">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/JavaPF_jar/JavaPF.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

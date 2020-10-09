@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="JavaPF:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JavaPF_jar</output-path>
+    <root id="archive" name="JavaPF.jar">
+      <element id="module-output" name="JavaPF" />
+    </root>
+  </artifact>
+</component>
