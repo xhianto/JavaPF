@@ -1,5 +1,6 @@
 package be.vdab.voorwerpen;
 
+import be.vdab.util.Isbn13Exception;
 import be.vdab.util.Voorwerp;
 
 public abstract class Boek implements Voorwerp {
@@ -8,15 +9,54 @@ public abstract class Boek implements Voorwerp {
     private final static String eigenaar = "VDAB";
     private float aankoopPrijs;
     private String genre;
+    private String isbn13;
 
     public Boek() {
     }
 
-    public Boek(String titel, String auteur, float aankoopPrijs, String genre) {
+    public Boek(String titel, String auteur, float aankoopPrijs,
+                String genre, String isbn13) {
         setTitel(titel);
         setAuteur(auteur);
         this.aankoopPrijs = aankoopPrijs;
         setGenre(genre);
+        setIsbn13(isbn13);
+
+    }
+
+    public String getIsbn13() {
+        return isbn13;
+    }
+
+    public void setIsbn13(String isbn13) {
+        if (checkIsbn13(isbn13)){
+            this.isbn13 = isbn13;
+        }
+        else {
+            throw new Isbn13Exception("ongeldig ISBNnr", isbn13);
+        }
+    }
+
+    private boolean checkIsbn13(String isbn13){
+        isbn13 = isbn13.replaceAll("-","");
+        System.out.println(isbn13);
+        if (isbn13.length() != 13)
+            return false;
+        try {
+            int som = 0;
+            for (int i = 0; i < 12; i++){
+                if (i%2 == 0)
+                    som += Integer.parseInt(String.valueOf(isbn13.charAt(i)));
+                if (i%2 == 1)
+                    som += Integer.parseInt(String.valueOf(isbn13.charAt(i))) * 3;
+            }
+            System.out.println(som);
+            int eindCijfer = Integer.parseInt(String.valueOf(isbn13.charAt(12)));
+            return (10 - (som % 10) == eindCijfer);
+        }
+        catch (Exception ex) {
+            return false;
+        }
     }
 
     public String getTitel() {

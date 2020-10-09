@@ -7,9 +7,9 @@ public class WoordenBoek extends Boek {
     public WoordenBoek() {
     }
 
-    public WoordenBoek(String titel, String auteur,
-                       float aankoopPrijs, String genre, String taal) {
-        super(titel, auteur, aankoopPrijs, genre);
+    public WoordenBoek(String titel, String auteur, float aankoopPrijs,
+                       String genre, String isbn13, String taal) {
+        super(titel, auteur, aankoopPrijs, genre, isbn13);
         this.taal = taal;
     }
 

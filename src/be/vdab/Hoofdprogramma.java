@@ -1,25 +1,63 @@
 package be.vdab;
 
+import be.vdab.util.Isbn13Exception;
 import be.vdab.util.Voorwerp;
 import be.vdab.voorwerpen.*;
 
 public class Hoofdprogramma {
     public static void main(String[] args) {
-        Voorwerp[] voorwerpen = {
-                new be.vdab.voorwerpen.BoekenRek(),
-                new BoekenRek(75, 90, 28.5F),
-                new be.vdab.voorwerpen.LeesBoek(),
-                new LeesBoek("Leesboek Java 7", "Oracle", 20.4F,
-                        "genre Informatica", "onderw programmeren" ),
-                new be.vdab.voorwerpen.WoordenBoek(),
-                new WoordenBoek("Woordenboek Engels", "Van Dale", 30.10F,
-                        "genre vertaal woordenboek", "taal Engels-Nederlands")
-        };
+        Voorwerp[] voorwerpen = new Voorwerp[6];
+        try {
+            voorwerpen[0] = new BoekenRek();
+        }
+        catch (Isbn13Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        try {
+            voorwerpen[1] = new BoekenRek(75, 90,
+                    28.5F);
+        }
+        catch (Isbn13Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        try {
+            voorwerpen[2] = new LeesBoek();
+        }
+        catch (Isbn13Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        try {
+            voorwerpen[3] = new LeesBoek("Leesboek Java 7",
+                    "Oracle", 20.4F,
+                    "genre Informatica", "978-0-306-40615-7",
+                    "onderw programmeren");
+        }
+        catch (Isbn13Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        try {
+            voorwerpen[4] = new WoordenBoek();
+        }
+        catch (Isbn13Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        try {
+            voorwerpen[5] = new WoordenBoek("Woordenboek Engels",
+                    "Van Dale", 30.10F,
+                    "genre vertaal woordenboek",
+                    "978-0-306-40615-N",
+                    "taal Engels-Nederlands");
+        }
+        catch (Isbn13Exception ex) {
+            System.out.println(ex.getMessage());
+        }
         float totaleWinst = 0;
-        for (var eenVoorwerp: voorwerpen) {
-            eenVoorwerp.gegevensTonen();
-            System.out.println();
-            totaleWinst += eenVoorwerp.winstBerekenen();
+        for (Voorwerp voorwerp : voorwerpen) {
+            if (voorwerp != null) {
+                voorwerp.gegevensTonen();
+                System.out.println();
+                totaleWinst += voorwerp.winstBerekenen();
+            }
         }
         System.out.println("DE TOTALE WINST BEDRAAGT " + totaleWinst);
     }

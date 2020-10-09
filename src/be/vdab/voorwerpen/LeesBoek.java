@@ -7,8 +7,9 @@ public class LeesBoek extends Boek {
     public LeesBoek() {
     }
 
-    public LeesBoek(String titel, String auteur, float aankoopPrijs, String genre, String onderwerp) {
-        super(titel, auteur, aankoopPrijs, genre);
+    public LeesBoek(String titel, String auteur, float aankoopPrijs,
+                    String genre, String isbn13, String onderwerp) {
+        super(titel, auteur, aankoopPrijs, genre, isbn13);
         this.onderwerp = onderwerp;
     }
 
