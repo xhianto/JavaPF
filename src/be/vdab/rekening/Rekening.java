@@ -2,6 +2,8 @@ package be.vdab.rekening;
 
 import be.vdab.util.RekeningnummerException;
 
+import java.util.Objects;
+
 public abstract class Rekening {
     private String rekeningNummer;
     private double saldo;
@@ -81,5 +83,18 @@ public abstract class Rekening {
         catch (NumberFormatException ex) {
             return false;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Rekening)) return false;
+        Rekening rekening = (Rekening) o;
+        return rekeningNummer.equals(rekening.rekeningNummer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(rekeningNummer);
     }
 }

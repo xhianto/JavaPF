@@ -6,6 +6,8 @@ import be.vdab.util.Vervuiler;
 import be.vdab.verwarming.Stookketel;
 import be.vdab.voertuigen.*;
 
+import java.util.TreeSet;
+
 public class TestProgramma {
     public static void main(String[] args) {
         var opel1 = new be.vdab.voertuigen.Personenwagen();
@@ -61,6 +63,19 @@ public class TestProgramma {
         var Milieus = new Milieu[] { opel1, opel2, volvo1, volvo2};
         for (var milieu : Milieus){
             milieu.geefMilieuData();
+        }
+
+
+        var setVoertuigen = new TreeSet<Voertuig>();
+        setVoertuigen.add(opel2);
+        setVoertuigen.add(new Personenwagen("Piet Peeters",
+                18321.0F, 110, 7.1F, "1-OPQ-099", 5, 5));
+        setVoertuigen.add(volvo2);
+        setVoertuigen.add(new Vrachtwagen("Jan Vos",
+                254612.0F, 450, 33.1F, "1-AZE-123", 6200.0F));
+        System.out.println("\n*** TreeSet van voertuigen ***");
+        for (var eenVoertuig : setVoertuigen) {
+            System.out.println(eenVoertuig);
         }
     }
 }

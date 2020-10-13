@@ -3,7 +3,9 @@ package be.vdab.voertuigen;
 import be.vdab.util.Milieu;
 import be.vdab.util.Privaat;
 
-public abstract class Voertuig implements Milieu, Privaat {
+import java.util.Objects;
+
+public abstract class Voertuig implements Milieu, Privaat, Comparable<Voertuig> {
     private String polishouder = "onbepaald";
     private float kostprijs = 0.0f;
     private int pk = 0;
@@ -88,5 +90,23 @@ public abstract class Voertuig implements Milieu, Privaat {
     @Override
     public void geefPrivateData() {
         System.out.println(polishouder + ";" + nummerplaat);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Voertuig))
+            return false;
+        Voertuig voertuig = (Voertuig) o;
+        return Objects.equals(getNummerplaat(), voertuig.getNummerplaat());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNummerplaat());
+    }
+
+    @Override
+    public int compareTo(Voertuig o) {
+        return nummerplaat.compareTo(o.getNummerplaat());
     }
 }
